@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="css/themes/bb_theme.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <title>Podometro</title>
+    </head>
+
+    <body>
+        <section data-role="page" id="principal">
+            <header data-role="header">
+                <h2>Podometro</h2>
+                <a href="#configuracion" data-icon="gear" class="ui-btn-left">Config</a>
+                <a data-icon="camera" class="ui-btn-right">Imagen</a>
+            </header>
+
+            <!-- La imagen puede cambiar según se seleccione, con la cámara o desde la galería -->
+            <img id="banner" src="img/out_fucking_skilled.png">
+
+            <div id="numeropasos"></div>
+            <div id="numerocalorias"></div>
+            
+            <input id="iniciar" type="button" value="Iniciar" onclick="iniciarPodometro()">
+            <input id="detener" type="button" value="Detener" onclick="detenerPodometro()">
+
+            <!-- La imagen cambia según la inclinación-->
+            <img id="flecha" src="img/flechanorte0.png">
+            <div id="direccion"></div>
+        </section>
+
+
+
+        <section data-role="page" id="configuracion">
+            <header data-role="header">
+                <h2>Configuracion</h2>
+                <a href="#principal" data-icon="back" class="ui-btn-left">Regresar</a>
+            </header>
+
+            <fieldset data-role="controlgroup">
+                <h3>Por favor contesta lo siguiente para poder calcular correctamente tu desempeño:</h3>
+
+                <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked">
+                <label for="radio-choice-1">Hombre</label>
+                <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2">
+                <label for="radio-choice-2">Mujer</label>
+
+                <h1>Peso (kg):</h1> <input type="text">
+            </fieldset>
+        </section>
+    </body>
+
+</html>
