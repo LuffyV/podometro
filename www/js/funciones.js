@@ -34,7 +34,7 @@ function obtenerPasos(){
 
 }
 
-function obtenerCalorias(pasos, tiempo, genero, peso){
+function obtenerCalorias(pasos, genero, peso){
     var caloriasQuemadas;
     // se obtienen de lo que se ponga en la configuracíón y se calcula con eso
     // se actualiza el html constantemente en base a la fórmula
@@ -78,35 +78,30 @@ document.addEventListener("deviceready", onDeviceReady, false);
     function onSuccess(heading){
         var direccion = document.getElementById('direccion');
         var grados = heading.magneticHeading;
-        var imagenFlecha = document.getElementById('flecha')
+        var imagenFlecha = document.getElementById('flecha');
+
+        imagenFlecha.style.transform = "rotate("+ grados + "deg)";
 
         if(grados > 0 && grados < 90){
             direccion.innerHTML = grados + '° NE';
-            imagenFlecha.src = "img/flechaNorte1";
         } else if(grados > 90 && grados < 180){
             direccion.innerHTML = grados + '° SE';
-            imagenFlecha.src = "img/flechaNorte3";
         } else if(grados > 180 && grados < 270){
             direccion.innerHTML = grados + '° SO';
-            imagenFlecha.src = "img/flechaNorte5";
         } else if(grados > 270 && grados >360){
             direccion.innerHTML = grados + '° NO';
-            imagenFlecha.src = "img/flechaNorte7";
         }
 
         if(grados == 0){
             direccion.innerHTML = grados + '° N';
-            imagenFlecha.src = "img/flechaNorte0";
         } else if(grados == 90){
             direccion.innerHTML = grados + '° E';
-            imagenFlecha.src = "img/flechaNorte2";
         } else if(grados == 180){
             direccion.innerHTML = grados + '° S';
-            imagenFlecha.src = "img/flechaNorte4";
         } else if(grados == 270){
             direccion.innerHTML = grados + '° O';
-            imagenFlecha.src = "img/flechaNorte6";
         }
+
     }
 
     function onError(compassError){
