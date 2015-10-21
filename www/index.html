@@ -31,10 +31,10 @@
     // Start watching the acceleration
     //
     function startWatch() {
-        var numeropasos=0;
-        var numerocalorias=0;
+        numeropasos=0;
+        numerocalorias=0;
         // Update acceleration every 3 seconds
-        var options = { frequency: 120 };
+        var options = { frequency: 300 };
 
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     }
@@ -62,16 +62,7 @@
             y=acceleration.y;
             z=acceleration.z
 
-         var  length = sqrt(x * x + y * y + z * z);
-        if(length>=2){
-            numeropasos+=1;
-        }
-   
-        var divPasos=document.getElementById('numeropasos');
-        divPasos.innerHTML=numeropasos;
-
-        var divCalorias=document.getElementById('numerocalorias');
-        divCalorias.innerHTML=numeropasos*100;
+        
 
     }
  
