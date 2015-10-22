@@ -23,17 +23,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
     function onSuccess(heading){
         var direccion = document.getElementById('direccion');
 
-        if(heading.magneticHeading  > 0 && heading.magneticHeading  < 90){
-            direccion.innerHTML = "Heading: " + heading.magneticHeading  + '° NE';
+        if(heading.magneticHeading  > 0 && heading.magneticHeading < 90){
+            direccion.innerHTML = "Heading: " + heading.magneticHeading  + '° NO';
         }
-        if(heading.magneticHeading  > 90 && heading.magneticHeading  < 180){
+        if(heading.magneticHeading  > 90 && heading.magneticHeading < 180){
             direccion.innerHTML = "Heading: " + heading.magneticHeading  + '° SO';
         }
-        if(heading.magneticHeading  > 180 && heading.magneticHeading  < 270){
+        if(heading.magneticHeading  > 180 && heading.magneticHeading < 270){
             direccion.innerHTML = "Heading: " + heading.magneticHeading  + '° SE';
         }
-        if(heading.magneticHeading  > 270 && heading.magneticHeading  >360){
-            direccion.innerHTML = "Heading: " + heading.magneticHeading  + '° NO';
+        if(heading.magneticHeading  > 270 && heading.magneticHeading < 360){
+            direccion.innerHTML = "Heading: " + heading.magneticHeading  + '° NE';
         }
 
         if(heading.magneticHeading  == 0){
