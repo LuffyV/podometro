@@ -1,9 +1,6 @@
 var botonIniciar = document.getElementById('iniciar');
 var botonDetener = document.getElementById('detener');
-var divPasos = document.getElementById('numeropasos');
-var divCalorias = document.getElementById('numerocalorias');
     
-
 function iniciarPodometro(){
     if(botonIniciar.innerHTML == "Iniciar"){
         botonIniciar.innerHTML = "Reiniciar";
@@ -35,12 +32,13 @@ function obtenerPasos(){
 }
 
 function obtenerCalorias(pasos, genero, peso){
+    var divPasos = document.getElementById('numeropasos');
+    var divCalorias = document.getElementById('numerocalorias');
     var caloriasQuemadas;
-    // se obtienen de lo que se ponga en la configuracíón y se calcula con eso
-    // se actualiza el html constantemente en base a la fórmula
-    // ...la fórmula está pendiente de buscarse
 
-    var divCalorias.innerHTML = caloriasQuemadas + "kcal";
+    // sin usar la configuración es solo 1 caloría = 20 pasos
+    caloriasQuemadas = divPasos.value()/20;
+    divCalorias.innerHTML = caloriasQuemadas + "kcal";
 }
 
 

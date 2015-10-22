@@ -23,7 +23,6 @@
             alert("Fallo al iniciar la camara"+message);
         }
 
-
         function capturePhoto(){
             navigator.camera.getPicture(onPhotoDataSuccess, onFail,{quality:50, destinationType:destinationType.DATA_URL});
         }
@@ -31,12 +30,8 @@
         function capturePhotoEdit(){
             navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
                 destinationType: destinationType.DATA_URL });
-
         }
-
 
         function getPhoto(source){
             navigator.camera.getPicture(onPhotoURISuccess,onFail,{quality:50,destinationType:destinationType.FILE_URI,sourceType:source});
-
-
         }

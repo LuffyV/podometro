@@ -61,9 +61,6 @@
             x=acceleration.x;
             y=acceleration.y;
             z=acceleration.z
-
-        
-
     }
  
     // onError: Failed to get the acceleration
@@ -71,7 +68,6 @@
     function onError() {
         alert('Error con el accelerometer');
     }
-
         </script>
 
         <title>Podómetro</title>
@@ -83,26 +79,20 @@
                 <h2>Podometro</h2>
                 <a href="#configuracion" data-icon="gear" class="ui-btn-left">Config</a>
                 <a data-icon="camera" data-position="window"class="ui-btn-right" data-rel="popup" href="#options" data-transition="pop">Imagen</a>
-
             </header>
 
             <!-- La imagen puede cambiar según se seleccione, con la cámara o desde la galería -->
             <img height="20%" width="100%" id="banner" src="img/out_fucking_skilled.png">
-            <p>
-                <label>Pasos:</label>
-                 <div id="numeropasos"></div>
-            </p>
-           
+
+            <p><label>Pasos:</label> <div id="numeropasos"></div></p>
             
-            <p>
-                    <label>Calorias:</label>
-                    <div id="numerocalorias"></div>
-            </p>
+            <p><label>Calorias:</label> <div id="numerocalorias"></div></p>
             
             <input id="iniciar" type="button" value="Iniciar" onclick="startWatch();">
             <input id="detener" type="button" value="Detener" onclick="stopWatch();">
 
             <!-- La imagen cambia según la inclinación-->
+            <br><br>
             <img width="150px" height="150px" id="flecha" src="img/notched-compass.png">
             
             <div id="direccion"></div>
@@ -125,7 +115,7 @@
 
         <section data-role="page" id="configuracion">
             <header data-role="header">
-                <h2>Configuracion</h2>
+                <h2>Configuración</h2>
                 <a href="#principal" data-icon="back" class="ui-btn-left">Regresar</a>
             </header>
 
