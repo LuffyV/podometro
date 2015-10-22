@@ -3,128 +3,54 @@
 <html>
     <head>
         <meta charset="utf-8">
-
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/themes/bb_theme.css">
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        
         
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/camera.js"> </script>
-        <script type="text/javascript">
-        var numeropasos;
-        var numerocalorias;
-        var watchID = null;
 
-    // Wait for Cordova to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
+        <script type="text/javascript" src="js/brujula.js"></script>
+        <script type="text/javascript" src="js/camera.js"></script>
 
-    // Cordova is ready
-    //
-    function onDeviceReady() {
-        startWatch();
-    }
-
-    // Start watching the acceleration
-    //
-    function startWatch() {
-        numeropasos=0;
-        numerocalorias=0;
-        // Update acceleration every 3 seconds
-        var options = { frequency: 120 };
-
-        watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
-    }
-
-    // Stop watching the acceleration
-    //
-    function stopWatch() {
-        if (watchID) {
-            navigator.accelerometer.clearWatch(watchID);
-            watchID = null;
-        }
-    }
-
-    // onSuccess: Get a snapshot of the current acceleration
-    //
-    function onSuccess(acceleration) {
-        var element = document.getElementById('accelerometer');
-        
-
-        element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
-                            'Acceleration Y: ' + acceleration.y + '<br />' +
-                            'Acceleration Z: ' + acceleration.z + '<br />' + 
-                            'Timestamp: '      + acceleration.timestamp + '<br />';
-            x=acceleration.x;
-            y=acceleration.y;
-            z=acceleration.z
-
-         var  length = sqrt(x * x + y * y + z * z);
-        if(length>=2){
-            numeropasos+=1;
-        }
-   
-        var divPasos=document.getElementById('numeropasos');
-        divPasos.innerHTML=numeropasos;
-
-        var divCalorias=document.getElementById('numerocalorias');
-        divCalorias.innerHTML=numeropasos*100;
-
-    }
- 
-    // onError: Failed to get the acceleration
-    //
-    function onError() {
-        alert('Error con el accelerometer');
-    }
-
-        </script>
-        <title>Podometro</title>
+        <title>Podómetro</title>
     </head>
 
     <body>
         <section data-role="page" id="principal">
             <header data-role="header">
-                <h2>Podometro</h2>
+                <h2>Podómetro</h2>
                 <a href="#configuracion" data-icon="gear" class="ui-btn-left">Config</a>
-                <a data-icon="camera" data-position="window"class="ui-btn-right" data-rel="popup" href="#options" data-transition="pop">Imagen</a>
-
+                <a data-icon="camera" data-position="window" class="ui-btn-right" data-rel="popup" href="#options" data-transition="pop">Imagen</a>
             </header>
 
-            <!-- La imagen puede cambiar según se seleccione, con la cámara o desde la galería -->
-            <img id="banner" src="img/out_fucking_skilled.png">
-            <p>
-                <LABEL>Pasos:</LABEL>
-                 <div id="numeropasos"></div>
-            </p>
-           
+            <img height="20%" width="100%" id="banner" src="img/out_fucking_skilled.png">
+
+            <p><label>Pasos:</label> <div id="numeropasos"></div></p>
             
-            <p>
-                    <label>Calorias:</label>
-                    <div id="numerocalorias"></div>
-            </p>
+            <p><label>Calorias:</label> <div id="numerocalorias"></div></p>
             
             <input id="iniciar" type="button" value="Iniciar" onclick="startWatch();">
             <input id="detener" type="button" value="Detener" onclick="stopWatch();">
 
-            <!-- La imagen cambia según la inclinación-->
-            <img id="flecha" src="img/flechanorte0.png">
+            <img id="flecha" width="150px" height="150px" src="img/notched-compass.png">
+            <br>
             
-            <div id="direccion"></div>
-           
+            <div id="direccion">Esperando heading.</div>
+            <br>
 
             </div>
             <div id="accelerometer">
             </div>
             <div data-role="popup" id="options">
-                <h3>CAMBIAR IMAGEN</h3>
-                <p>Your download will begin automaticaly</p>
+                <h3>Cambiar Imagen</h3>
+                <p>Your download will begin automatically</p>
                 <a href="#" data-role="button" data-rel="back" data-icon="camera" data-inline="true" data-mini="true" onclick="capturePhotoEdit();">CAMERA</a>
                 <a href="#" data-role="button" data-rel="back" data-icon="navigation" data-inline="true" data-mini="true" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Libreria</a>
-
             </div>
        
         </section>
@@ -133,7 +59,7 @@
 
         <section data-role="page" id="configuracion">
             <header data-role="header">
-                <h2>Configuracion</h2>
+                <h2>Configuración</h2>
                 <a href="#principal" data-icon="back" class="ui-btn-left">Regresar</a>
             </header>
 
@@ -145,7 +71,7 @@
                 <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2">
                 <label for="radio-choice-2">Mujer</label>
 
-                <h1>Peso (kg):</h1> <input type="text">
+                <h1>Peso (kg):</h1> <input type="text" value="73">
             </fieldset>
         </section>
     </body>

@@ -3,15 +3,18 @@
 <html>
     <head>
         <meta charset="utf-8">
-
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/themes/bb_theme.css">
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        
         
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
         <script type="text/javascript" src="cordova.js"></script>
+
+        <script type="text/javascript" src="js/brujula.js"></script>
         <script type="text/javascript" src="js/camera.js"></script>
 
         <title>Podómetro</title>
@@ -34,11 +37,10 @@
             <input id="iniciar" type="button" value="Iniciar" onclick="startWatch();">
             <input id="detener" type="button" value="Detener" onclick="stopWatch();">
 
-            <br><br>
-            <img width="150px" height="150px" id="flecha" src="img/notched-compass.png">
+            <img id="flecha" width="150px" height="150px" src="img/notched-compass.png">
             <br>
             
-            <div id="direccion"></div>
+            <div id="direccion">Esperando heading.</div>
             <br>
 
             </div>
@@ -49,7 +51,6 @@
                 <p>Your download will begin automatically</p>
                 <a href="#" data-role="button" data-rel="back" data-icon="camera" data-inline="true" data-mini="true" onclick="capturePhotoEdit();">CAMERA</a>
                 <a href="#" data-role="button" data-rel="back" data-icon="navigation" data-inline="true" data-mini="true" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Libreria</a>
-
             </div>
        
         </section>
